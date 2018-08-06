@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { 
     addTask,
     editTask,
-    editInputTask,
     deleteTask,
     getLIst } from '../../modules/task';
 
@@ -14,7 +13,7 @@ import TaskManager from './component'
 
 const mapStateToProps = (state) => {
     return {
-        list: state.task
+        data: state.task
     }
 }
 function mapDispatchToProps (dispatch) {
@@ -23,7 +22,6 @@ function mapDispatchToProps (dispatch) {
       {
         addTask,
         editTask,
-        editInputTask,
         deleteTask,
         getLIst
       },

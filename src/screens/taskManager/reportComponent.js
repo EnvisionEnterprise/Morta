@@ -16,7 +16,7 @@ export default class ReportComponent extends React.Component{
     componentWillMount(){
     }
     render(){
-        console.log("list",this.props.list);
+       
         return(
             <Wrapper>
                 <Title>Report
