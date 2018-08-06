@@ -6,6 +6,8 @@ import  Task from '../requests/taskData'
 
 
 export function* handleTaskSaga(data){
+    console.log("addtask",data);
+    
     const taskList=yield call(Task.addTask,data)
     yield put(getTaskList(taskList))
 }

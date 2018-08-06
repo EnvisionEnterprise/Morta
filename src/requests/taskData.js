@@ -20,14 +20,21 @@ export default class Task {
           return response
       }
       static editTask (data) {
+        console.log("newdoccccccc",data.task);
         let list = []
             var newDoc={
-                _rev:`${data.index._rev}`,
-                hour:data.changevalue,
-                _id:`${data.index._id}`
+                _rev:`${data._rev}`,
+                _id:`${data._id}`,
+                hour:data.hour,
+                project :data.project,
+                task :data.task,
+                type :data.type,
             }
+            console.log("newdoc",newDoc);
         let response=updateDoc('dummyDB',newDoc)
         .then(function(response){
+            console.log("ressss",response);
+            
            list=response
            return list
           })

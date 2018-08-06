@@ -6,6 +6,7 @@ import { getTaskList } from '../modules/task'
 import  Task from '../requests/taskData'
 
 export function * handleTaskSaga(data){
+    console.log("Handle saga==",data);
     const taskList = yield call(Task.editTask,data.data)
     yield put(getTaskList(taskList))
 }

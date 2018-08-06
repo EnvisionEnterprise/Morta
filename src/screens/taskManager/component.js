@@ -193,7 +193,7 @@ class TaskManger extends Component {
                     ...item,
                     ...row,
                 });
-                console.log("Data==", data[index])
+                console.log("Data==",item, data[index])
                 this.props.actions.editTask(data[index])
                 //this.setState({ data: data, editingKey: '' });
             } else {
@@ -219,12 +219,6 @@ class TaskManger extends Component {
         const hour = this.state.hour;
         const key = this.state.data.length.toString();
         const data = {
-            _id: new Date().toISOString(),
-            // key: `date:${moment().get('date')},month:${moment().get('month')},year:${moment().get('year')}`,
-            month: moment().get('month'),
-            year: moment().get('year'),
-            date: moment().get('date'),
-            time: moment().get('hour'),
             task,
             project,
             type,
@@ -244,12 +238,6 @@ class TaskManger extends Component {
             const hour = this.state.hour;
             const key = this.state.data.length.toString();
             const data = {
-                _id: new Date().toISOString(),
-                // key: `date:${moment().get('date')},month:${moment().get('month')},year:${moment().get('year')}`,
-                month: moment().get('month'),
-                year: moment().get('year'),
-                date: moment().get('date'),
-                time: moment().get('hour'),
                 task,
                 project,
                 type,
