@@ -2,20 +2,14 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import { 
-    addTask,
-    editTask,
-    editInputTask,
-    deleteTask,
-    getLIst } from '../../modules/task';
-
-import {getMonthlyList} from '../../modules/report'
-
 import {
-  makeSelectReports,
-  makeSelectHourReports,
-  makeSelectWeeklyReports,
-  makeSelectMonthlyReports} from '../../selectors/report'
+  addTask,
+  editTask,
+  deleteTask,
+  getLIst
+} from '../../modules/task';
+
+import {makeSelectReports} from '../../selectors/report'
 
 import TaskManager from './component'
 
@@ -31,7 +25,6 @@ function mapDispatchToProps (dispatch) {
       {
         addTask,
         editTask,
-        editInputTask,
         deleteTask,
         getLIst
       },

@@ -1,5 +1,5 @@
 // var PouchDB = require('pouchdb-browser');
-import PouchDB from 'pouchdb-browser' 
+import PouchDB from 'pouchdb-browser'
 import findPlugin from "pouchdb-find";
 PouchDB.plugin(findPlugin);
 
@@ -7,21 +7,21 @@ var dummyDB = new PouchDB('dummyDB');
 var mydb = new PouchDB('mydb');
 
 export const getAllDocs = dbName =>
-new Promise((resolve, reject) => {
-setDB(dbName)
-    .then(db =>
-    db.allDocs({
-        include_docs: true,
-        dcscending:true
-    })
-    )
-    .then(results => {
-    const resultsDocs = results.rows.map(row => row.doc);
-    resolve(resultsDocs)
-    }).then(response => {
-    })
-    .catch(err => reject(err));
-});
+  new Promise((resolve, reject) => {
+    setDB(dbName)
+      .then(db =>
+        db.allDocs({
+          include_docs: true,
+          dcscending: true
+        })
+      )
+      .then(results => {
+        const resultsDocs = results.rows.map(row => row.doc);
+        resolve(resultsDocs)
+      }).then(response => {
+      })
+      .catch(err => reject(err));
+  });
 
 export const setDB = dbName =>
   new Promise((resolve, reject) => {
@@ -29,21 +29,21 @@ export const setDB = dbName =>
       resolve(dummyDB);
     }
     if (dbName === 'mydb') {
-        resolve(mydb);
-     
+      resolve(mydb);
+
     }
   });
 
- export const saveDoc = (dbName, doc) =>
- new Promise((resolve, reject) => {
-   setDB(dbName)
-     .then(db => db.post(doc))
-     .then(getAllDocs(dbName).then(newDocs => resolve(newDocs)))
-     .catch(err => 
-       reject(err));
- });
+export const saveDoc = (dbName, doc) =>
+  new Promise((resolve, reject) => {
+    setDB(dbName)
+      .then(db => db.post(doc))
+      .then(getAllDocs(dbName).then(newDocs => resolve(newDocs)))
+      .catch(err =>
+        reject(err));
+  });
 
- export const deleteDoc = (dbName, doc) =>
+export const deleteDoc = (dbName, doc) =>
   new Promise((resolve, reject) => {
     setDB(dbName)
       .then(db =>
@@ -59,11 +59,9 @@ export const setDB = dbName =>
   });
 
 
- export const updateDoc = (dbName, updatedDoc) =>
+export const updateDoc = (dbName, updatedDoc) =>
   new Promise((resolve, reject) => {
     setDB(dbName)
-    // .then(db =>
-    //   db.get(`${updatedDoc._id}`)
       .then(db =>
         db.put(updatedDoc)
           .then(getAllDocs(dbName).then(allDocs => resolve(allDocs)))
