@@ -192,7 +192,7 @@ class TaskManger extends Component {
                     ...item,
                     ...row,
                 });
-                console.log("Data==", item, data[index])
+                console.log(index)
                 this.props.actions.editTask(data[index])
                 //this.setState({ data: data, editingKey: '' });
             } else {
@@ -251,7 +251,7 @@ class TaskManger extends Component {
         }
      }
     componentWillReceiveProps(nextProps) {
-        this.setState({ list: nextProps.list })
+        this.setState({ data: nextProps.list })
     }
 
     render() {
