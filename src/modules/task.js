@@ -9,12 +9,10 @@ export const addTask = (data) => {
 }
 
 export const editTask = (data) => {
-    console.log("Edit task===",data);
-    
-   return {
-    type: types.EDIT_INPUT,
-    data
-}
+    return {
+        type: types.EDIT_INPUT,
+        data
+    }
 }
 
 export const deleteTask = (data) => {

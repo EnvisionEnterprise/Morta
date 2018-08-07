@@ -193,7 +193,7 @@ class TaskManger extends Component {
                     ...item,
                     ...row,
                 });
-                console.log("Data==",item, data[index])
+                console.log("Data==", item, data[index])
                 this.props.actions.editTask(data[index])
                 //this.setState({ data: data, editingKey: '' });
             } else {
@@ -225,8 +225,9 @@ class TaskManger extends Component {
             hour,
             key,
         }
-        if (task !== '')
+        if (task !== '' && name)
             this.props.actions.addTask(data)
+            e.target.value=''
     }
 
     handleKeyPress(e) {
@@ -246,6 +247,7 @@ class TaskManger extends Component {
             }
             if (task !== '')
                 this.props.actions.addTask(data)
+                e.target.value=''
         }
     }
 

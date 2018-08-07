@@ -1,17 +1,17 @@
-import { put, takeEvery,call } from 'redux-saga/effects'
+import { put, takeEvery, call } from 'redux-saga/effects'
 
-import {types} from '../constants/types'
+import { types } from '../constants/types'
 import { getTaskList } from '../modules/task'
-import  Task from '../requests/taskData'
+import Task from '../requests/taskData'
 
 
-export function* handleTaskSaga(data){
-    console.log("addtask",data);
-    
-    const taskList=yield call(Task.addTask,data)
+export function* handleTaskSaga(data) {
+    console.log("addtask", data);
+
+    const taskList = yield call(Task.addTask, data)
     yield put(getTaskList(taskList))
 }
 
-export default function* taskAddSaga(){
-    yield takeEvery(types.ADD_TASK,handleTaskSaga)
+export default function* taskAddSaga() {
+    yield takeEvery(types.ADD_TASK, handleTaskSaga)
 }
