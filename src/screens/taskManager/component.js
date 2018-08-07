@@ -33,12 +33,7 @@ class TaskManger extends Component {
         const type = this.state.type;
         const hour = this.state.hour;
         const data = {
-            _id: new Date().toISOString(),
-            key:`date:${moment().get('date')},month:${moment().get('month')},year:${moment().get('year')}`,
-            month:moment().get('month'),
-            year:moment().get('year'),
-            date:moment().get('date'),
-            time:moment().get('hour'),
+            timeStamp: Math.floor(Date.now() / 1000),
             task,
             project,
             type,
@@ -72,7 +67,7 @@ class TaskManger extends Component {
     }
 
     render() {
-        console.log("state",this.state.list);
+        console.log("state",this.state.list,this.props);
         return (
             <div>Enter Task : 
                 <Input className='inputBox' placeholder="Please enter Task" onChange={this.handleChange}/>
@@ -97,8 +92,7 @@ class TaskManger extends Component {
                     }
                     )}
                 </div>
-                <ReportComponent list={this.state.list} actions={this.props.actions}/>
-
+                <ReportComponent list={this.props.hourList} actions={this.props.actions}/>
             </div>
         );
     }

@@ -1,9 +1,12 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'
 
 import task from './task'
 import report from './report'
-
-export default combineReducers({
+ 
+export default function createReducer (asyncReducers) {
+  return combineReducers({
     task,
-    report
+    report,
+    ...asyncReducers
   })
+}

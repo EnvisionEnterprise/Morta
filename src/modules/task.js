@@ -1,4 +1,5 @@
 import {types} from '../constants/types'
+import {fromJS} from 'immutable';
 
 
 export const addTask = (data) => {
@@ -32,12 +33,14 @@ export const getLIst=()=>{
         type:types.GET_LIST
     }
 }
-const initialState = []
+const initialState = fromJS({
+    list:[]
+})
 
 const task = (state = initialState, action) => {
   switch (action.type) {
     case types.FETCH_TASK_LIST: {
-      return action.data
+      return state.set('list',action.data)
     }
     case types.EDIT_VALUE: {
       const index = action.data.i
@@ -62,4 +65,4 @@ const task = (state = initialState, action) => {
 
 }
 
-export default task;
+export default task

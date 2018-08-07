@@ -16,7 +16,7 @@ export default class ReportComponent extends React.Component{
     componentWillMount(){
     }
     render(){
-        console.log("list",this.props.list);
+        console.log("listtttttttttt",this.props.list);
         return(
             <Wrapper>
                 <Title>Report
@@ -34,8 +34,7 @@ export default class ReportComponent extends React.Component{
                         title={<h4>{item.task}</h4>}
                         description={<h5>{item.hour} hours spent</h5>}
                         />
-                         
-                         <div>{new Date(`${item._id}`).toISOString().substring(0, 10)}</div></List.Item>
+                         <div>Time:{new Date(item.timeStamp*1000).getHours()}</div></List.Item>
                         )}
                         />
                     </Panel>
