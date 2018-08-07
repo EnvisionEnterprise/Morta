@@ -11,20 +11,20 @@ import {
 
 import {getMonthlyList} from '../../modules/report'
 
-import {makeSelectReports,makeSelectHourReports} from '../../selectors/report'
+import {
+  makeSelectReports,
+  makeSelectHourReports,
+  makeSelectWeeklyReports,
+  makeSelectMonthlyReports} from '../../selectors/report'
 
 import TaskManager from './component'
 
 
 const mapStateToProps = createStructuredSelector({
   list: makeSelectReports(),
-  hourList:makeSelectHourReports()
+
 })
-// const mapStateToProps = (state) => {
-//     return {
-//         list: state.task
-//     }
-// }
+
 function mapDispatchToProps (dispatch) {
   return {
     actions: bindActionCreators(

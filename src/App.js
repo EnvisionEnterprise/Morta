@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TaskManger from './screens/taskManager/container';
+import ReportComponent from './screens/report/container';
 
 export default class App extends Component {
 
@@ -14,6 +15,7 @@ export default class App extends Component {
     return (
       <div>
         <TaskManger/>
+        <ReportComponent/>
       </div>
     )
   }

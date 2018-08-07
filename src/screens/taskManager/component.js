@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Input, Button, Select,Icon } from 'antd';
 import 'antd/dist/antd.css';
 import '../../App.css';
-import ReportComponent from './reportComponent';
-import * as moment from 'moment';
 
 const Option = Select.Option;
 
@@ -92,7 +90,6 @@ class TaskManger extends Component {
                     }
                     )}
                 </div>
-                <ReportComponent list={this.props.hourList} actions={this.props.actions}/>
             </div>
         );
     }
