@@ -225,7 +225,7 @@ class TaskManger extends Component {
             hour,
             key,
         }
-        if (task !== '' && name)
+        if (task !== '')
             this.props.actions.addTask(data)
             e.target.value=''
     }
